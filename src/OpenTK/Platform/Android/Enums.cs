@@ -5,6 +5,8 @@
  * See license.txt for licensing detailed licensing details.
  */
 
+#if ANDROID
+
 using System;
 
 namespace OpenTK.Graphics {
@@ -14,3 +16,5 @@ namespace OpenTK.Graphics {
         ES3 = 3,
     }
 }
+
+#endif

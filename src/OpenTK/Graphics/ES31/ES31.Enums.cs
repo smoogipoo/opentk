@@ -23,6 +23,7 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#if ES31
 
 
 using System;
@@ -41134,3 +41135,5 @@ namespace OpenTK.Graphics.ES31
     }
 
 }
+
+#endif

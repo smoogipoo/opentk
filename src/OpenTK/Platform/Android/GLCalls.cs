@@ -5,6 +5,8 @@
  * See license.txt for licensing detailed licensing details.
  */
 
+#if ANDROID
+
 using System;
 using OpenTK;
 using OpenTK.Graphics;
@@ -70,3 +72,5 @@ namespace OpenTK
         }
     }
 }
+
+#endif

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if IOS
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using OpenTK.Platform;
@@ -32,3 +34,5 @@ namespace OpenTK.Platform.iPhoneOS
         }
     }
 }
+
+#endif
