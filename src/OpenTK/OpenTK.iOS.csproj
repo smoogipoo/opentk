@@ -18,9 +18,9 @@
     </Reference>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Debug\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk --debug" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Debug'" />
-    <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Release\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Release'" />
-    <Exec Command="mono $(MSBuildThisFileDirectory)../Generator.Rewrite/bin/Debug/Rewrite.exe -a $(OutputPath)OpenTK.dll --debug" Condition="$(OS) != 'Windows_NT' and $(Configuration) == 'Debug'" />
-    <Exec Command="mono $(MSBuildThisFileDirectory)../Generator.Rewrite/bin/Release/Rewrite.exe -a $(OutputPath)OpenTK.dll" Condition="$(OS) != 'Windows_NT' and $(Configuration) == 'Release'" />
+    <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Debug\net461\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk --debug" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Debug'" />
+    <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Release\net461\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Release'" />
+    <Exec Command="mono $(MSBuildThisFileDirectory)../Generator.Rewrite/bin/Debug/net461/Rewrite.exe -a $(OutputPath)OpenTK.dll --debug" Condition="$(OS) != 'Windows_NT' and $(Configuration) == 'Debug'" />
+    <Exec Command="mono $(MSBuildThisFileDirectory)../Generator.Rewrite/bin/Release/net461/Rewrite.exe -a $(OutputPath)OpenTK.dll" Condition="$(OS) != 'Windows_NT' and $(Configuration) == 'Release'" />
   </Target>
 </Project>
