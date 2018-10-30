@@ -26,7 +26,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
+using SixLabors.Primitives;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;

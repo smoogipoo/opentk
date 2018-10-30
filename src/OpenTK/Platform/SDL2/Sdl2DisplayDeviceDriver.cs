@@ -24,7 +24,7 @@
 //
 
 using System.Collections.Generic;
-using System.Drawing;
+using SixLabors.Primitives;
 
 namespace OpenTK.Platform.SDL2
 {

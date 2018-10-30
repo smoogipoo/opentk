@@ -27,7 +27,7 @@
 
 using System;
 using System.Diagnostics;
-using System.Drawing;
+using SixLabors.Primitives;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;

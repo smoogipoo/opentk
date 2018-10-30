@@ -27,6 +27,8 @@ namespace OpenTK.Rewrite
                 "bin"
             };
 
+            addDirRecursive(Path.Combine(getNugetDir(), "sixlabors.core"));
+
             if (Program.Options.NETStandard)
                 addDirRecursive(Path.Combine(getNugetDir(), "netstandard.library"));
 

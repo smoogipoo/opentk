@@ -12,7 +12,7 @@ extern alias IOS;
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
+using SixLabors.Primitives;
 
 using IOS::CoreAnimation;
 using IOS::CoreGraphics;
@@ -252,7 +252,7 @@ namespace OpenTK.Platform.iPhoneOS
         }
 
         [Export("initWithFrame:")]
-        public iPhoneOSGameView(System.Drawing.RectangleF frame)
+        public iPhoneOSGameView(RectangleF frame)
             : base(new IOS::System.Drawing.RectangleF(frame.X, frame.Y, frame.Width, frame.Height))
         {
             stopwatch = new System.Diagnostics.Stopwatch ();

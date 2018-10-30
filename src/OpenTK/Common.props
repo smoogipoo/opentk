@@ -9,6 +9,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="SixLabors.Core" Version="1.0.0-beta0006" />
     <None Include="..\..\OpenTK.snk">
       <Link>OpenTK.snk</Link>
     </None>

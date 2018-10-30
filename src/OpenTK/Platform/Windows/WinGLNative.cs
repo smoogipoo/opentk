@@ -28,7 +28,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using OpenTK.Input;
-using System.Drawing;
+using SixLabors.Primitives;
 
 namespace OpenTK.Platform.Windows
 {

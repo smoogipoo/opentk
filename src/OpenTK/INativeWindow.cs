@@ -25,7 +25,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
+using SixLabors.Primitives;
 using OpenTK.Platform;
 
 namespace OpenTK

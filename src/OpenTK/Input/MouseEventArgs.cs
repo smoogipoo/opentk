@@ -26,7 +26,7 @@
 //
 
 using System;
-using System.Drawing;
+using SixLabors.Primitives;
 
 namespace OpenTK.Input
 {

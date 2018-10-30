@@ -9,7 +9,7 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
+using SixLabors.Primitives;
 using System.Timers;
 
 using OpenTK;

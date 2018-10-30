@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
+using SixLabors.Primitives;
 using System.Runtime.InteropServices;
 
 namespace OpenTK.Platform.X11

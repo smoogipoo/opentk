@@ -1,11 +1,11 @@
 ﻿#if !MINIMAL
 
-using System.Drawing;
+using SixLabors.Primitives;
 
 #else
 
 using System;
-using System.Drawing;
+using SixLabors.Primitives;
 using OpenTK.Graphics;
 
 // Override a number of System.* classes when compiling for
@@ -155,8 +155,8 @@ namespace OpenTK
 // Need a different namespace to avoid clash with OpenTK.Graphics.
 namespace OpenTK.Minimal
 {
-    using System.Drawing;
-    
+    using SixLabors.Primitives;
+
     internal sealed class Graphics : IDisposable
     {
         public static Graphics FromImage(Image img)

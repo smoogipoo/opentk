@@ -5,7 +5,7 @@
  */
 
 using System;
-using System.Drawing;
+using SixLabors.Primitives;
 using System.Text;
 using System.Runtime.InteropServices;
 
