@@ -103,11 +103,6 @@ namespace OpenTK
         public int Width { get { return width; } }
         public int Height { get { return height; } }
 
-        public Color GetPixel(int x, int y)
-        {
-            return new Color();
-        }
-
         internal void UnlockBits(BitmapData data)
         {
         }
@@ -116,6 +111,8 @@ namespace OpenTK
         {
             return new BitmapData(Width, Height, 0);
         }
+
+        internal Color4 GetPixel(int x, int y) => Color4.Transparent;
 
         internal static int GetPixelFormatSize(PixelFormat format) => 32;
     }

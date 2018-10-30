@@ -93,26 +93,6 @@ namespace OpenTK.Graphics.OpenGL
         /// Set the RGB values of the current color.
         /// </summary>
         /// <param name="color">The color to set.</param>
-        public static void Color3(Color color)
-        {
-            GL.Color3(color.R, color.G, color.B);
-        }
-
-        /// <summary>
-        /// [requires: v1.0][deprecated: v3.2]
-        /// Set the current color.
-        /// </summary>
-        /// <param name="color">The color to set.</param>
-        public static void Color4(Color color)
-        {
-            GL.Color4(color.R, color.G, color.B, color.A);
-        }
-
-        /// <summary>
-        /// [requires: v1.0][deprecated: v3.2]
-        /// Set the RGB values of the current color.
-        /// </summary>
-        /// <param name="color">The color to set.</param>
         public static void Color3(Vector3 color)
         {
             GL.Color3(color.X, color.Y, color.Z);
@@ -143,29 +123,9 @@ namespace OpenTK.Graphics.OpenGL
         /// Specify clear values for the color buffers.
         /// </summary>
         /// <param name="color">The color to set as the clear value.</param>
-        public static void ClearColor(Color color)
-        {
-            GL.ClearColor(color.R / 255.0f, color.G / 255.0f, color.B / 255.0f, color.A / 255.0f);
-        }
-
-        /// <summary>
-        /// [requires: v1.0]
-        /// Specify clear values for the color buffers.
-        /// </summary>
-        /// <param name="color">The color to set as the clear value.</param>
         public static void ClearColor(Color4 color)
         {
             GL.ClearColor(color.R, color.G, color.B, color.A);
-        }
-
-        /// <summary>
-        /// [requires: v1.4 or ARB_imaging|VERSION_1_4]
-        /// Set the blend color.
-        /// </summary>
-        /// <param name="color">The blend color to set.</param>
-        public static void BlendColor(Color color)
-        {
-            GL.BlendColor(color.R / 255.0f, color.G / 255.0f, color.B / 255.0f, color.A / 255.0f);
         }
 
         /// <summary>
@@ -2821,34 +2781,9 @@ namespace OpenTK.Graphics.OpenGL
         /// Specifies a texture environment. May be TextureEnv, TextureFilterControl or PointSprite.
         /// </param>
         /// <param name="pname">
-        /// Specifies the symbolic name of a single-valued texture environment parameter. May be either TextureEnvMode, 
-        /// TextureLodBias, CombineRgb, CombineAlpha, Src0Rgb, Src1Rgb, Src2Rgb, Src0Alpha, Src1Alpha, Src2Alpha, 
-        /// Operand0Rgb, Operand1Rgb, Operand2Rgb, Operand0Alpha, Operand1Alpha, Operand2Alpha, RgbScale, AlphaScale, 
-        /// or CoordReplace.
-        /// </param>
-        /// <param name="color">
-        /// Specifies the color to apply.
-        /// </param>
-        public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, Color color)
-        {
-            Color4 c = new Color4(color.R, color.G, color.B, color.A);
-            unsafe
-            {
-                TexEnv(target, pname, &c.R);
-            }
-        }
-
-        /// <summary>
-        /// [requires: v1.0][deprecated: v3.2]
-        /// Set texture environment parameters.
-        /// </summary>
-        /// <param name="target">
-        /// Specifies a texture environment. May be TextureEnv, TextureFilterControl or PointSprite.
-        /// </param>
-        /// <param name="pname">
-        /// Specifies the symbolic name of a single-valued texture environment parameter. May be either TextureEnvMode, 
-        /// TextureLodBias, CombineRgb, CombineAlpha, Src0Rgb, Src1Rgb, Src2Rgb, Src0Alpha, Src1Alpha, Src2Alpha, 
-        /// Operand0Rgb, Operand1Rgb, Operand2Rgb, Operand0Alpha, Operand1Alpha, Operand2Alpha, RgbScale, AlphaScale, 
+        /// Specifies the symbolic name of a single-valued texture environment parameter. May be either TextureEnvMode,
+        /// TextureLodBias, CombineRgb, CombineAlpha, Src0Rgb, Src1Rgb, Src2Rgb, Src0Alpha, Src1Alpha, Src2Alpha,
+        /// Operand0Rgb, Operand1Rgb, Operand2Rgb, Operand0Alpha, Operand1Alpha, Operand2Alpha, RgbScale, AlphaScale,
         /// or CoordReplace.
         /// </param>
         /// <param name="color">
