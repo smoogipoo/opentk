@@ -138,8 +138,9 @@ namespace OpenTK.Platform.iPhoneOS
         void Invalidate ();
     }
 
-    [Register]
-    internal class CADisplayLinkTimeSource : NSObject, ITimeSource {
+    [Register("OpenTK-CADisplayLinkTimeSource")]
+    internal class CADisplayLinkTimeSource : NSObject, ITimeSource
+    {
         private const string selectorName = "runIteration:";
         private static Selector selRunIteration = new Selector (selectorName);
 
@@ -228,6 +229,7 @@ namespace OpenTK.Platform.iPhoneOS
         }
     }
 
+    [Register("OpenTK-iPhoneOSGameView")]
     public class iPhoneOSGameView : UIView, IGameWindow
     {
         private bool suspended;
