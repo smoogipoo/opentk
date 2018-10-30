@@ -10,12 +10,15 @@ namespace OpenTK.Platform.iPhoneOS
     internal class AndroidDisplayDeviceDriver : IDisplayDeviceDriver
     {
         private static DisplayDevice dev;
+
         static AndroidDisplayDeviceDriver()
         {
             dev = new DisplayDevice();
             dev.IsPrimary = true;
             dev.BitsPerPixel = 16;
         }
+
+        public List<DisplayDevice> AvailableDevices { get; } = new List<DisplayDevice> { dev };
 
         public DisplayDevice GetDisplay(DisplayIndex displayIndex)
         {

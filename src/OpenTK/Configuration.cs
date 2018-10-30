@@ -276,7 +276,7 @@ namespace OpenTK
             {
                 if (!initialized)
                 {
-#if ANDROID || IPHONE
+#if ANDROID || IOS
                     RunningOnMono = true;
 #else
                     RunningOnMono = DetectMono();

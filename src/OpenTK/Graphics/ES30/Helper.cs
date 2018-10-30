@@ -35,7 +35,7 @@ namespace OpenTK.Graphics.ES30
     /// </summary>
     public sealed partial class GL : GraphicsBindingsBase
     {
-#if IPHONE
+#if IOS
         private const string Library = "/System/Library/Frameworks/OpenGLES.framework/OpenGLES";
 #else
         private const string Library = "GLESv2";

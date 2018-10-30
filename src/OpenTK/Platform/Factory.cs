@@ -89,7 +89,7 @@ namespace OpenTK.Platform
                 // using the same API.
                 Embedded = Default;
             }
-#if IPHONE
+#if IOS
             else if (Configuration.RunningOnIOS)
             {
                 Embedded = new iPhoneOS.iPhoneFactory();

@@ -5,21 +5,23 @@
  * See license.txt for licensing detailed licensing details.
  */
 
-#if ANDROID
-
 using System;
+using System.Collections.Generic;
 
 namespace OpenTK.Platform.Android
 {
     internal class AndroidDisplayDeviceDriver : IDisplayDeviceDriver
     {
         private static DisplayDevice dev;
-        static AndroidDisplayDeviceDriver ()
+
+        static AndroidDisplayDeviceDriver()
         {
-            dev = new DisplayDevice ();
+            dev = new DisplayDevice();
             dev.IsPrimary = true;
             dev.BitsPerPixel = 16;
         }
+
+        public List<DisplayDevice> AvailableDevices { get; } = new List<DisplayDevice> { dev };
 
         public DisplayDevice GetDisplay(DisplayIndex displayIndex)
         {
@@ -27,16 +29,14 @@ namespace OpenTK.Platform.Android
         }
 
 
-        public bool TryChangeResolution (DisplayDevice device, DisplayResolution resolution)
+        public bool TryChangeResolution(DisplayDevice device, DisplayResolution resolution)
         {
             return false;
         }
 
-        public bool TryRestoreResolution (DisplayDevice device)
+        public bool TryRestoreResolution(DisplayDevice device)
         {
             return false;
         }
     }
 }
-
-#endif
