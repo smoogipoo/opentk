@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace OpenTK.Rewrite
 {
@@ -20,7 +21,33 @@ namespace OpenTK.Rewrite
 
         public OpenTKAssemblyResolver()
         {
-            directories = new List<string>(2) { ".", "bin" };
+            directories = new List<string>(2)
+            {
+                ".",
+                "bin"
+            };
+
+            if (Program.Options.NETStandard)
+                addDirRecursive(Path.Combine(getNugetDir(), "netstandard.library"));
+
+            void addDirRecursive(string dir)
+            {
+                if (!Directory.Exists(dir))
+                    return;
+                directories.Add(dir);
+                foreach (var nested in Directory.GetDirectories(dir))
+                    addDirRecursive(nested);
+            }
+        }
+
+        private string getNugetDir()
+        {
+            // Bare minimum is done for OSX/Linux
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".nuget", "packages");
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".nuget", "packages");
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".nuget", "packages");
         }
 
         AssemblyDefinition GetAssembly(string file, ReaderParameters parameters)

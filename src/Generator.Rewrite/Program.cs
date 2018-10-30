@@ -29,7 +29,7 @@ namespace OpenTK.Rewrite
     // with the s IL instructions.
     internal class Program
     {
-        private static Options Options;
+        public static Options Options;
 
         private static void Main(string[] args)
         {
@@ -94,21 +94,6 @@ namespace OpenTK.Rewrite
                 Console.Error.WriteLine("No keyfile specified or keyfile missing.");
             }
 
-            if (Options.NETStandard)
-            {
-                DefaultAssemblyResolver resolver = new DefaultAssemblyResolver();
-                string searchPath = GetNetstandardRefPath();
-                if (!Directory.Exists(searchPath))
-                {
-                    Console.Error.WriteLine(
-                        "Could not locate .NET Standard reference assemblies. This is necessary for binary rewriting to proceed.");
-                    return;
-                }
-
-                resolver.AddSearchDirectory(searchPath);
-                read_params.AssemblyResolver = resolver;
-            }
-
             // Load assembly and process all modules
             try
             {
@@ -170,18 +155,6 @@ namespace OpenTK.Rewrite
                 Console.WriteLine("Failed to load the assembly. It may already have been rewritten, and the debug symbols no longer match.");
                 Console.WriteLine(inex);
             }
-        }
-
-        private string GetNetstandardRefPath()
-        {
-            string dir = Environment.CurrentDirectory;
-            while (!Directory.Exists(Path.Combine(dir, "packages")) && !string.IsNullOrEmpty(dir))
-                dir = dir.Substring(0, dir.LastIndexOf(Path.DirectorySeparatorChar));
-
-            if (string.IsNullOrEmpty(dir))
-                return string.Empty;
-
-            return Path.Combine(dir, "packages", "NETStandard.Library.2.0.1", "build", "netstandard2.0", "ref");
         }
 
         private void Rewrite(TypeDefinition type)
