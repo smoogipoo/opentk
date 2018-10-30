@@ -5,7 +5,7 @@
     <PackageId>ppy.OpenTK.iOS</PackageId>
     <Title>ppy.OpenTK.iOS</Title>
     <TargetFramework>XamarinIos10</TargetFramework>
-    <DefineConstants>IOS;OPENGLES;MINIMAL</DefineConstants>
+    <DefineConstants>$(DefineConstants);IOS;OPENGLES;MINIMAL</DefineConstants>
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
   </PropertyGroup>
   <ItemGroup>

@@ -100,7 +100,7 @@ namespace OpenTK
         {
             get
             {
-#if IPHONE
+#if IOS
                 return true;
 #else
                 return false;
