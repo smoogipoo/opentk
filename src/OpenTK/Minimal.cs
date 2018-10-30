@@ -6,6 +6,7 @@ using System.Drawing;
 
 using System;
 using System.Drawing;
+using OpenTK.Graphics;
 
 // Override a number of System.* classes when compiling for
 // minimal targets (e.g. MonoTouch).
