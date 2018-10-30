@@ -26,11 +26,13 @@
 
 #if IOS
 
+extern alias IOS;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-using OpenGLES;
+using IOS::OpenGLES;
 
 using OpenTK.Graphics;
 

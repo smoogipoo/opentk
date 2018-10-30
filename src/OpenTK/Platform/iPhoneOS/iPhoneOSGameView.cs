@@ -8,16 +8,18 @@
 
 #if IOS
 
+extern alias IOS;
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
 
-using CoreAnimation;
-using CoreGraphics;
-using Foundation;
-using OpenGLES;
-using UIKit;
-using ObjCRuntime;
+using IOS::CoreAnimation;
+using IOS::CoreGraphics;
+using IOS::Foundation;
+using IOS::OpenGLES;
+using IOS::UIKit;
+using IOS::ObjCRuntime;
 
 using OpenTK;
 using OpenTK.Graphics;
@@ -251,7 +253,7 @@ namespace OpenTK.Platform.iPhoneOS
 
         [Export("initWithFrame:")]
         public iPhoneOSGameView(System.Drawing.RectangleF frame)
-            : base(frame)
+            : base(new IOS::System.Drawing.RectangleF(frame.X, frame.Y, frame.Width, frame.Height))
         {
             stopwatch = new System.Diagnostics.Stopwatch ();
         }
@@ -910,7 +912,7 @@ namespace OpenTK.Platform.iPhoneOS
                         float scale = (float)ContentScaleFactor;
                         widthInPoints = (int)(width / scale);
                         heightInPoints = (int)(height / scale);
-                        UIGraphics.BeginImageContextWithOptions (new System.Drawing.SizeF (widthInPoints, heightInPoints), false, scale);
+                        UIGraphics.BeginImageContextWithOptions(new IOS::System.Drawing.SizeF(widthInPoints, heightInPoints), false, scale);
 
                         try {
                             var cgcontext = UIGraphics.GetCurrentContext ();
@@ -919,7 +921,7 @@ namespace OpenTK.Platform.iPhoneOS
                             // Flip the CGImage by rendering it to the flipped bitmap context
                             // The size of the destination area is measured in POINTS
                             cgcontext.SetBlendMode (CGBlendMode.Copy);
-                            cgcontext.DrawImage (new System.Drawing.RectangleF (0, 0, widthInPoints, heightInPoints), iref);
+                            cgcontext.DrawImage(new IOS::System.Drawing.RectangleF(0, 0, widthInPoints, heightInPoints), iref);
 
                             // Retrieve the UIImage from the current context
                             var image = UIGraphics.GetImageFromCurrentImageContext ();

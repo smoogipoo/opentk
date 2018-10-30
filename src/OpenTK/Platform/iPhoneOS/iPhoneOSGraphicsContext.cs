@@ -7,10 +7,12 @@
 
 #if IOS
 
+extern alias IOS;
+
 using System;
 
-using ObjCRuntime;
-using OpenGLES;
+using IOS::ObjCRuntime;
+using IOS::OpenGLES;
 
 using OpenTK.Graphics;
 

@@ -6,7 +6,17 @@
     <Title>ppy.OpenTK.iOS</Title>
     <TargetFramework>XamarinIos10</TargetFramework>
     <DefineConstants>IOS;OPENGLES;MINIMAL</DefineConstants>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.iOS">
+      <Aliases>IOS</Aliases>
+    </Reference>
+  </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Debug\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk --debug" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Debug'" />
     <Exec Command="$(MSBuildThisFileDirectory)..\Generator.Rewrite\bin\Release\Rewrite.exe -a $(OutputPath)OpenTK.dll -k $(MSBuildThisFileDirectory)..\..\OpenTK.snk" Condition="$(OS) == 'Windows_NT' and $(Configuration) == 'Release'" />
