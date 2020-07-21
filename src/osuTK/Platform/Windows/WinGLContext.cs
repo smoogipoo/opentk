@@ -297,7 +297,7 @@ namespace osuTK.Platform.Windows
         {
             bool success = false;
 
-            for (int retry = 0; retry < 5 && !success; retry++)
+            for (int retry = 0; retry < 10 && !success; retry++)
             {
                 success = Wgl.MakeCurrent(window.DeviceContext, contextHandle);
                 if (!success)
