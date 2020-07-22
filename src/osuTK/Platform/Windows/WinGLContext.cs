@@ -56,21 +56,7 @@ namespace osuTK.Platform.Windows
                 Context = new ContextHandle(Wgl.CreateContext(window.DeviceContext));
                 if (Context != ContextHandle.Zero)
                 {
-                    // Make the context current.
-                    // Note: on some video cards and on some virtual machines, wglMakeCurrent
-                    // may fail with an errorcode of 6 (INVALID_HANDLE). The suggested workaround
-                    // is to call wglMakeCurrent in a loop until it succeeds.
-                    // See https://www.opengl.org/discussion_boards/showthread.php/171058-nVidia-wglMakeCurrent()-multiple-threads
-                    // Sigh...
-                    for (int retry = 0; retry < 5 && !success; retry++)
-                    {
-                        success = Wgl.MakeCurrent(window.DeviceContext, Context.Handle);
-                        if (!success)
-                        {
-                            Debug.Print("wglMakeCurrent failed with error: {0}. Retrying", Marshal.GetLastWin32Error());
-                            System.Threading.Thread.Sleep(10);
-                        }
-                    }
+                    success = TryMakeCurrent(window, Context.Handle);
                 }
                 else
                 {
@@ -279,7 +265,7 @@ namespace osuTK.Platform.Windows
                         throw new ArgumentException("window", "Must point to a valid window.");
                     }
 
-                    success = Wgl.MakeCurrent(wnd.DeviceContext, Handle.Handle);
+                    success = TryMakeCurrent(wnd, Handle.Handle);
                     DeviceContext = wnd.DeviceContext;
                 }
                 else
@@ -294,6 +280,34 @@ namespace osuTK.Platform.Windows
                         "Failed to make context {0} current. Error: {1}", this, Marshal.GetLastWin32Error()));
                 }
             }
+        }
+
+        /// <summary>
+        /// Tries to make the context current over several attempts.
+        /// </summary>
+        /// <remarks>
+        /// On some video cards and on some virtual machines, wglMakeCurrent
+        /// may fail with an error code of 6 (INVALID_HANDLE). The suggested workaround
+        /// is to call wglMakeCurrent in a loop until it succeeds.
+        /// See https://www.opengl.org/discussion_boards/showthread.php/171058-nVidia-wglMakeCurrent()-multiple-threads
+        /// In a majority of cases this will succeed on the first try.
+        /// </remarks>
+        /// <returns>Whether the context was successfully made current.</returns>
+        private static bool TryMakeCurrent(WinWindowInfo window, IntPtr contextHandle)
+        {
+            bool success = false;
+
+            for (int retry = 0; retry < 10 && !success; retry++)
+            {
+                success = Wgl.MakeCurrent(window.DeviceContext, contextHandle);
+                if (!success)
+                {
+                    Debug.Print("wglMakeCurrent failed with error: {0}. Retrying", Marshal.GetLastWin32Error());
+                    System.Threading.Thread.Sleep(10);
+                }
+            }
+
+            return success;
         }
 
         public override bool IsCurrent
