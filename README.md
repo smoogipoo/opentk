@@ -50,16 +50,7 @@ Note what installing NuGet package will add reference to osuTK.dll, but osuTK.dl
 will not be copied to the project output directory automatically, so you need to add it to your project
 and then enable the "Copy to Output Directory" option (as in step 3 below).
 
-To build osuTK from source, do the following once:
-```
-git clone https://github.com/opentk/opentk   # Download source code from git
-cd opentk                                    # Enter the source directory
-./build.cmd                                  # Build on .Net (Windows)
-./build.sh                                   # Build on Mono (Linux / Mac OS X)
-```
-
-After this is done at least once, you can build osuTK normally through
-your IDE.
+To build osuTK from source, follow instructions in appveyor.yml (roughly, depending on your use case).
 
 News
 ====
