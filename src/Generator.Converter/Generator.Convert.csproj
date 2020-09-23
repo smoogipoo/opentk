@@ -4,7 +4,7 @@
     <AssemblyName>Convert</AssemblyName>
     <OutputType>Exe</OutputType>
     <Title>Generator.Convert</Title>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Copyright>Copyright (c) 2006 - 2016 Stefanos Apostolopoulos &lt;stapostol@gmail.com&gt; for the Open Toolkit library.</Copyright>
   </PropertyGroup>
   <ItemGroup>
