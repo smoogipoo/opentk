@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.23">
   <Import Project="..\Common.props" />
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -6,7 +6,7 @@
     <Title>ppy.osuTK.Android</Title>
     <RootNamespace>osuTK.Android</RootNamespace>
     <AssemblyName>osuTK.Android</AssemblyName>
-    <TargetFramework>monoandroid50</TargetFramework>
+    <TargetFramework>xamarin.android</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
