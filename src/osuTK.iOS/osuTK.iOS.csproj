@@ -7,7 +7,7 @@
     <RootNamespace>osuTK.iOS</RootNamespace>
     <AssemblyName>osuTK.iOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <TargetFramework>xamarin.ios</TargetFramework>
+    <TargetFramework>xamarin.ios10</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
